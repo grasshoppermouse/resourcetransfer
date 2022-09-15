@@ -1,0 +1,764 @@
+---
+title: "Gossip, reputation, domain-specificity, and resource transfers among Aka hunter-gatherers, Ngandu horticulturalists, and MTurkers"
+author: 
+  - name: Nicole H. Hess and Edward H. Hagen
+    affiliation:
+      - name: Washington State University
+        department: Department of Anthropology
+execute:
+  echo: false
+  output: true
+format:
+  html:
+    self-contained: true
+number-sections: true
+always_allow_html: true
+standalone: true
+bibliography: paper.bib
+csl: apa-6th-edition.csl
+---
+
+```{r setup}
+#| output: false
+source("analysis.R")
+library(kableExtra)
+library(equatiomatic)
+library(hagenutils)
+```
+
+Abstract
+
+Theoretical models of gossip’s role in the evolution of cooperation in ancestral human communities, and its role in within-group competition for resources, require gossip to cause changes in individuals’ reputations, which then cause changes in the likelihood of their receiving benefits. However, there is scant experimental evidence from small-scale societies supporting such causal relationships. There is also little experimental evidence that, when making decisions about the transfer of resources, gossip receivers weigh gossip according to its relevance to the social domain in which such transfers occur. Using an experimental vignette study design, in a sample from MTurk (N=120) and another sample from a remote horticultural population, the Ngandu of the Central African Republic (CAR) (N=160), we test whether positive and negative gossip increase and decrease the likelihood of transferring resources, respectively, mediated by their effects on reputation. We also test whether gossip that is specific to the domain of the resource transfer has a larger impact on reputation than other gossip. We found strong significant, domain-specific effects of gossip on participant willingness to transfer benefits, mediated by gossip's effects on reputation. Then, in an exploratory observational study of Aka hunter-gatherers of CAR using peer-reports (N=40), we investigate whether providing benefits to the group (such as working hard, parenting or alloparenting, or sharing) and relatedness to the group, were associated with reputations and receiving benefits. We found that, although having a good reputation was associated with receiving more benefits, there was a stark sex difference, with almost all women scoring higher than almost all men on a dimension involving better parenting, reputations, and receipt of more benefits.
+
+# Introduction
+
+Humans evolved in groups that cooperated to obtain food, defend themselves from predators and other humans, and care for children, the injured, and the sick [@sugiyama2004; @ringen2019; @martin2020]. Some benefits, such as defense from predators and enemies, were non-excludable public goods -- all group members would necessarily obtain the benefit. Other benefits, though, such as food and care, were potentially excludable -- they could be distributed unequally to group members. Successful hunters could provide more meat to their wives and children, for instance, although the extent to which this happens in contemporary foraging societies is fiercely debated [@blurtonjones1987; @ringen2019; @stibbardhawkes2019; @jaeggi2013; @hawkes2014; @wood2013; @stibbardhawkes2020]. Studies in high income countries find that individuals perceived as lazy are seen as less deserving of resource transfers, such as welfare payments, than are victims of misfortune, and these perceptions influence social policies [@petersen2012; @jensen2017].
+
+Inclusive fitness is a compelling explanation for the provisioning of excludable benefits within families, such as food, alloparenting, and care of the sick and injured. Indeed, intergenerational transfers of material, embodied, and relational wealth within families establish and maintain inequality in a wide range of small-scale societies [@mulder2009]. Yet levels of inequality in foraging and horticultural societies, specifically, are relatively low [@mulder2009]. This is despite the fact that relatedness within such communities, which comprise a fluid mix of genetic kin, affines, and unrelated adults, is generally low [@hill_coresidence_2011; @dyble_sex_2015]. 
+
+A diverse group of theories has been proposed to explain the willingness to provide resources to unrelated community members, including reciprocal altruism [@allenarave2008; @jaeggi2013], investing in those who provide valuable group benefits [@gurven2000; @sugiyama2000; @sugiyama2003; @sugiyama2004], providing resources to others as a costly signal of quality (the ‘show-off’ models) [@gintis2001; @hawkes2002; @bliegebird2005; @stibbardhawkes2019], risk-buffering and fitness interdependence [@aktipis2018; @smith2019], and indirect reciprocity [@alexander1986; @nowak2005; @leimar2001; @balliet2020].
+
+In several of these theories, in order to receive benefits from others, individuals must have a "good" reputation. Reputation is based on information about one’s traits, behaviors, intentions, abilities, and culturally-specific competencies. A study of 153 cultures in the ethnographic record investigated the evidence for 20 domains of reputation identified in the theoretical literature. Domains that were widely supported across cultures included cultural conformity (conforming to cultural norms or excelling in culturally-valued skills), being knowledgeable, intelligent, prosocial, and industrious, and having social status. These domains formed clusters, with the most cross-cultural evidence for cultural group unity (e.g., cultural conformity, prosociality, and industriousness), social and material success (social and material capital and status), and neural capital (knowledgeable, oratory skill) [@garfield2021].
+
+## Gossip, reputation, and cooperation
+
+Information on the degree to which individuals in one's community excel or fall short on each of these reputational domains can be obtained via direct observation, or from other individuals in the community, i.e., gossip. Several theories have been put forward for the evolution of gossip, including ‘cultural learning’; ‘social learning,’ such as learning norms or one’s place in a group or acquiring new and important knowledge; strategy learning; social comparison; a mechanism for showing off one’s social skill and connections, and therefore one’s mate value; norm learning and enforcement; sanctioning, social control, or ‘policing’; a means to maintain the good reputations of allies; a means to maintain the unity, morals, and values of social groups; and as a means to facilitate social bonding and social cohesion in the very large groups that characterize humans [@hess2019, and references therein]. 
+
+The key role of gossip and reputation in the evolution of human cooperation, especially via indirect reciprocity, is starting to receive considerable attention [@wu2016; @balliet2020]. Gossip has been demonstrated to increase cooperation via indirect reciprocity in experimental economics games [e.g., @sommerfeld2007] where reputational information impacts contributions to a shared pool of resources [e.g., @beersma2011], or where information about the past behaviors of cooperative partners impacts participants’ inclinations to engage in future cooperation [e.g., @feinberg2014]. Conversely, cooperators in public goods games transmit more honest gossip [@giardini2021]. Gossip was found to be more effective and efficient than punishment in promoting and maintaining cooperation in a public goods game [@wu2016a], and gossip also increases cooperation in the dictator and ultimatum games [@wu2019]. In addition, agent based simulations have explored how varying the quantity and quality of gossip impacts cooperation [@giardini2014; @giardini2016].
+
+## Gossip and within-group competition for resources
+
+When reputation mediates access to group resources, competition for those resources by group members will often take the form of gossip that aims to increase one's reputation relative to that of competitors. A considerable body of evidence from industrialized populations demonstrates that gossiping is a key strategy in indirect aggression, the suite of behaviors that are used to harm others but that do not involve hitting or other types of physical force [for reviews, see @archer2005; @hess2019]. Ethnographic studies of gossip find that it is often used in reputation management, i.e., maintaining and improving one's reputation relative to others [@hess2017]. In an observational study among Aka, a Congo Basin hunter-gatherer population, peer-rated gossiping was strongly positively correlated with peer-rated anger for both women and men, confirming that Aka perceive gossip as aggressive [@hess2010]. In an observational study of women in a Micronesian population, mating competition was associated with indirect aggression [@stone2015], and in an experimental vignette study with an MTurk sample, competition for a limited resource increased gossip, especially negative gossip [@hess2021].
+
+@hess2019 proposed that in competition over resources within interdependent groups, negative gossip is more effective than physical aggression because one can reduce resource transfers to a competitor by harming his or her reputation, thereby increasing resource availability for oneself, without impairing the competitor's physical ability to continue contributing to the group. By the same token, positive gossip could increase transfers to a relative or ally by increasing his or her reputation. Because individuals' reputations can differ in different social domains [@garfield2021], reputation-based decisions to gossip about others, or to provide benefits, should be sensitive to the domain in which competition or help is occurring. To influence resource transfers within families, for instance, one should relay gossip that is relevant to family members, and to influence resource transfers within communities, one should relay gossip that is relevant to community members. In an experimental study involving competition over limited resources in a family vs. work context, @hess2021 found, as predicted, that individuals transmitted more family gossip in a family context and more work gossip in a work context. 
+
+The theoretical models of the role of gossip in the evolution of cooperation in ancestral human communities require that gossip cause changes in individuals' reputations that then cause changes in the likelihood of providing benefits to them, yet there is scant evidence from small-scale societies of such causal relationships. There is also no evidence that, when making a decision about the transfer of resources, gossip receivers weigh gossip according to its relevance to the social context. 
+
+# Study aims
+
+Here, using an experimental vignette study design that can provide evidence of causation, in a sample from MTurk and another sample from a remote horticultural population, the Ngandu of the Central African Republic (CAR), we test the following hypotheses:
+
+1. Increasingly positive or negative gossip about a target individual causes greater or lesser likelihood of transferring benefits to them, respectively.
+2. The impact of gossip on the transfer of benefits to a target is mediated by the effect of gossip on impression of the target (reputation).
+3. The relationship between gossip and impressions are domain-specific, e.g., work gossip will be weighted more heavily in work contexts, and family gossip more heavily in family contexts.
+
+We also conjectured that positive or negative gossip might influence perceptions that the target was a threat or competitor to the participant, and that this might increase or decrease the likelihood of providing a benefit to the target. 
+
+Then, in an exploratory observational study of Aka hunter-gatherers of CAR, we investigate the following:
+
+1. Are peer-ratings of behaviors in common domains of reputation, i.e., work effort (industriousness), sharing (prosociality), anger (violating cultural conformity), and the quality of (allo)parenting, associated with peer-rated impressions of camp members?
+2. Are peer-rated impressions of camp members associated with peer-rated receipt of benefits?
+3. Is genetic relatedness to group members positively associated with participants' receipt of benefits?
+
+The studies were not preregistered because all studies were conducted in 2011-2012, prior to the widespread use of preregistration in the social sciences.
+
+# Ethics
+
+All studies were approved the Washington State University Human Research Protection Program, and all participants provided informed consent.
+
+# Data availability
+
+Data and code are available here: [https://github.com/grasshoppermouse/resourcetransfer](https://github.com/grasshoppermouse/resourcetransfer)
+
+All analyses conducted with `r R.version.string`.
+
+# Study 1: MTurk experiment
+
+There is ongoing research on the quality of data from MTurk vs. other samples, with most studies finding that data from MTurk data are equivalent or superior in quality to those collected from other popular sources [briefly reviewed in @chmielewski2020]. In vignette studies, used here, MTurk data quality also compares favorably to that from much more expensive population-based samples [@weinberg2014]. @chmielewski2020 found evidence that MTurk data quality decreased markedly around the summer of 2018. Our MTurk data were collected in 2011, however (MTurk was founded in 2005).
+
+## Methods
+
+Causation can be demonstrated by experimental study designs in which participants are randomized into treatment and control conditions. Unfortunately, such randomization is difficult or impossible for many social situations of interest. Experimental vignette studies are one alternative. These studies, which employ a short, carefully constructed description of a person, object, or situation, aim to approach the ecological validity of observational studies by presenting participants with rich, real-world scenarios. At the same time, they allow researchers to randomize participants into conditions in which theoretically relevant dimensions of the vignettes are systematically manipulated, thus enabling robust causal inferences [@atzmuller2010]. Experimental vignette studies are conducted in a broad range of disciplines, including anthropology, psychology, economics, sociology, management studies, political science, and education [@gaffney2022; @atzmuller2010; @aguinis2014].
+
+### MTurk vignettes
+
+Participants were randomly assigned to read either a work vignette or a family vignette. In both vignettes, participants read about a same-sex target (a worker that the participant supervises or a cousin of the participant) to whom the participant could allocate a valuable resource (a raise or a valuable painting). All female participants read vignettes with only female targets, and all male participants read vignettes with only male targets.
+
+> **Work vignette**: Imagine you work in an office where you supervise 10 employees, half men and half women. Your office is one division of a company that has done well in the last year, and the company gave you a 20% raise. The company has also authorized you to give a 20% raise to one of the employees you supervise. Dave/Elizabeth is one of the employees that you supervise. Here are some of the things that you know about Dave/Elizabeth \[positive and negative gossip statements follow\]
+
+> **Family vignette**: Imagine you have 10 cousins, half men and half women. Your wealthy grandmother has just died and you are the executor of her will. Your grandmother owned two valuable paintings that she wanted to remain in the family, and she left you one of them. Her will instructs you to give the other painting to one of your 10 cousins. Dave/Elizabeth is one of your cousins. Here are some of the things you know about Dave/Elizabeth \[positive and negative gossip statements follow\]
+
+After reading a vignette, participants read 16 "gossip" statements about the target, which we operationalized as true information about the behaviors and traits of the target. Nine gossip statements were relevant to the work environment and seven to the family environment [for details about the selection of these statements, see @hess2021]. We refer to statements that matched the content of the vignette (e.g., work gossip for participants who read the work vignette) as congruent gossip, and those that did not match (e.g., work gossip for participants who read the family vignette) as incongruent gossip. Each participant read either a positive or negative version of each statement. We manipulated the number of positive statements relative to negative ones, i.e., some participants read all positive versions of each statement, some all negative versions, and some with varying proportions of positive vs. negative versions. The number of positive family statements is the *family gossip* score, and the number of positive work statements is the *work gossip* score. Example work gossip statements (positive and negative versions):
+
+- Dave/Elizabeth \[works/does not work\] well under pressure.
+- Dave/Elizabeth is \[willing/unwilling\] to work late to finish a project on time.
+
+Example family gossip statements (positive and negative versions):
+
+- Dave/Elizabeth \[loves/hates\] his/her siblings.
+- Dave/Elizabeth \[is/is not\] good with children.
+
+Our main dependent/outcome variable was how likely the participant was to allocate the valuable resource (a raise or a valuable painting) to a same-sex target in the vignette.  After reading the vignette and the positive and negative work and family gossip statements, participants were asked how likely they were to allocate the valuable resource to the target: “How likely would you be to give the [raise/painting] to [Dave/Elizabeth]?” on a 1-9 Likert scale. Our predicted mediating variable was *impression*: “What is your impression of Dave/Elizabeth?”. We also asked some exploratory questions regarding competition with the target, e.g., “How competitive do you feel with Dave/Elizabeth?”
+
+For the full stimuli and questions, see @sec-mturksurvey in the SI.
+
+### Statistical analysis {#sec-mturkstats}
+
+We tested our primary hypotheses with a basic linear regression path model of *impression* as a mediator of the effects of *family_gossip* and *work_gossip* on *give_benefit* [@baron1986]:
+
+$$
+\operatorname{give\_benefit} = \beta_0 + \beta_1\operatorname{impression} + \beta_2\operatorname{work\_gossip} + \beta_3\operatorname{family\_gossip} + \epsilon
+$$ {#eq-benefit}
+
+$$
+\operatorname{impression} = \beta_0 + \beta_1\operatorname{work\_gossip} + \beta_2\operatorname{family\_gossip} + \epsilon
+$$ {#eq-impression1}
+
+Separate path models were fit for the work and family conditions using the `lavaan` package [@rosseel2012]. 
+
+We tested the domain specificity hypothesis in three ways. First, we tested if there was an interaction of work vs. family condition on the effects of work gossip vs. family gossip on impression, predicting evidence for positive interaction coefficients, $\beta_4>0$ and $\beta_5>0$:
+
+```{r}
+eq <- extract_eq(m_mturkdomain, use_coefs = F, intercept="beta", wrap = T)
+class(eq) <- "character"
+```
+
+$$
+  `r eq`
+$$ {#eq-impression2}
+
+
+Second and third, we compared the magnitudes of the gossip coefficients in linear regression models of *impression*, predicting larger coefficients for gossip that was congruent with the domain (e.g., work gossip in the work condition) than for gossip that was not congruent (e.g., family gossip in the work condition).
+
+In order to further explore the structure of our data, such as the relationship between gossip, competition, and transfer of benefits, we also fit a Gaussian graphical model (GGM) to all study variables using the graphical lasso (`glasso`) and `qgraph` packages [@borsboom2021; @friedman2019; @epskamp2012]. In GGMs, the nodes are the variables and the edges are partial correlation coefficients [@borsboom2021]. The graphical lasso estimates a sparse GGM solution using penalized regression. Penalized regression techniques were developed for situations where the number of parameters is large relative to the number of observations. These techniques include an additional penalty term, $\lambda$, that helps prevent overfitting (variance), albeit at the cost of some underfitting (bias). The insight of developers of penalized regression methods is that by underfitting (increasing bias), the model will perform better out of sample (have lower variance). One popular version, lasso regression, has the property that some coefficients are set to zero, thereby serving as a form of variable selection [@tibshirani1996]. In the graphical lasso, a sparse graph is estimated by applying the lasso penalty to the inverse covariation matrix [@friedman2019]; we chose the optimal tuning parameter using the Extended Bayesian Information Criterion provided in the `qgraph` package [@epskamp2012]. We also performed Principle Components Analyses (PCA).
+
+All studies were conducted in 2011-2012, prior to the widespread use of preregistration in the social sciences.
+
+## Results
+
+```{r}
+sextbl <- table(mturk2011$sex)
+nationtbl <- table(mturk2011$nation_home)
+conditiontbl <- table(mturk2011$condition)
+officetbl <- table(mturk2011$office_experience)
+```
+
+Data collection started on July 29, 2011 at 9:58 am PST. All but one participant finished by 10:13 am. Of the `r nrow(mturk2011)` participants in the study, `r sextbl[['female']]` were women, `r sextbl[['male']]` were men, `r nationtbl[['United States']]` were from the US, `r nationtbl[['India']]` were from India, and the remaining were mostly from various European and Asian countries. Participants had a diverse range of occupations, and `r officetbl[['yes']]` had office experience. For summary statistics by condition, see @tbl-mturksummary. Indian participants were younger than US participants, on average, and generally perceived greater competition with the fictional target of gossip (for comparison of US vs. Indian participants, see @tbl-IndiaUS).
+
+```{r}
+#| message: false
+vars <- c(
+  seconds = "Time to complete (seconds)",
+  age = "Age (years)",
+  work_gossip = "Work gossip score",
+  family_gossip = "Family gossip score",
+  impression = "Impression of target",
+  give_benefit = "Provide benefit to target",
+  friendly = "Perceived friendliness",
+  competition = "Perceived competition",
+  get_your_job = "Get your job",
+  criticize = "Criticize behind back",
+  interference = "Interfere with work/family relationships",
+  afraid = "Perceived physical threat"
+)
+
+knitr::kables(summaryTable(mturk2011, vars, fac = 'condition', sigfigs = 3), caption = "Summary statistics for the MTurk study, by family vs. work conditions; Cohen's 'd' is the standardized mean difference between conditions. {#tbl-mturksummary}") %>% kable_classic()
+```
+
+All variables were converted to Z-scores prior to analyses.
+
+### Gossip, reputation, and resource transfers
+
+Two path models were fit with the lavaan package, one for the work condition, and one for the family condition. In both, the randomized work and family gossip scores had a positive effect on *impression*, and *impression* was positively associated with *give benefit*. The direct effects of gossip scores on *give benefit* were smaller, and not significant for three of four effects. See @fig-mturksem.
+
+```{r}
+#| label: fig-mturksem
+#| fig-cap: "Path models of reported likelihoods of transfering benefits as a function of family and work gossip, mediated by *impression*. Left: MTurk study. Right: Ngandu study. Models fit by lavaan [@rosseel2012]. All predictors and outcome standardized. For full model statistics, see @tbl-mturksem and @tbl-ngandusem."
+knitr::include_graphics('Figures/mturk_nganduSEM2.svg')
+```
+
+### Three tests of gossip domain specificity
+
+First, in a linear model of *impression* as a function of work gossip and family gossip, and interactions terms with both for condition (@eq-impression2), the work gossip score had a larger coefficient in the work than family conditions, and family gossip score had a larger coefficient in the family than work conditions, i.e., the two interaction terms were in the predicted directions and statistically significant. This model explained `r signif(100*glance(m_mturkdomain)$adj.r.squared, 2)`% of the variance in *Impression*. See @fig-mturkreg and @tbl-mturk, model 1.
+
+```{r}
+# extract_eq(m_mturkdomain, use_coefs = T, wrap = T)
+```
+
+```{r}
+#| label: fig-mturkreg
+#| fig-width: 10
+#| fig-height: 10
+#| fig-cap: "Effects plots of impression vs. work gossip and family gossip. The work vs. family experimental condition significantly moderated the impact of gossip scores on impression in MTurk study, but not in Ngandu study. Top: MTurk. Bottom: Ngandu. Points are original data with a small amount of jitter added to reveal overlapping values."
+(plot_mturk_work + xlab('') + plot_mturk_family + xlab('')) / (plot_ngandu_work + plot_ngandu_family) + plot_layout(guides = 'collect') + plot_annotation(tag_levels = list(c('MTurk', '', 'Ngandu', '')))
+```
+
+Second, in a linear regression model of *impression* fit on data from the work condition only, the coefficient of the work gossip score was significantly larger than the coefficient of the family gossip score by a Z-test, $\beta_{work}=`r m_mturk_work_z['b1']` > \beta_{family}=`r m_mturk_work_z['b2']`$, $Z=`r m_mturk_work_z['Z']`$, $p=`r m_mturk_work_z['p']`$. In a linear regression model of impression fit on data from the family condition only, on the other hand, the coefficient of the family gossip score was not significantly larger than the coefficient of the work gossip score, $\beta_{family}=`r m_mturk_family_z['b1']` > \beta_{work}=`r m_mturk_family_z['b2']`$, $Z=`r m_mturk_family_z['Z']`$, $p=`r m_mturk_family_z['p']`$.
+
+Third, data were recoded with a *congruent gossip score* equaling the work gossip score in the work condition and the family gossip score in the family condition; and an *incongruent gossip score* equaling the work gossip score in the family condition and the family gossip score in the work condition. In a linear regression of *impression* as a function of these two gossip scores, the coefficient of the *congruent gossip score* was significantly larger than the coefficient of the *incongruent gossip score* by a Z-test, $\beta_{congruent}=`r m_mturk_congruent_z['b1']` > \beta_{incongruent}=`r m_mturk_congruent_z['b2']`$, $Z=`r m_mturk_congruent_z['Z']`$, $p=`r m_mturk_congruent_z['p']`$.
+
+### Exploratory analyses
+
+```{r}
+cortest <- signif(unlist(cor.test(~impression+friendly, mturk2011b)[c('estimate', 'p.value')]), 2)
+```
+
+We conjectured that positive or negative gossip might influence perceptions that the target was a threat or competitor to the participant, and that this might change the likelihood of providing a benefit to the target. Our measures of threat and competition were *afraid*, *get_your_job*, *competition*, *interference*, and *criticize*. We did not have clear predictions about the direction of any such effects (e.g., negative gossip might make the target seem more threatening, positive gossip might make the target seem to be a more formidable competitor, and either could have a positive or negative effect on providing the benefit). To simplify this exploratory analysis, we computed a *total_gossip* score as the sum of congruent and incongruent gossip, and then investigated these possibilities with a correlation matrix and principle components analysis (PCA) of all study variables, and an exploratory Gaussian graphical model [@borsboom2021].
+
+All variables were positively correlated to various degrees, except for *interference* and *criticize*, which were negatively correlated with most variables except *afraid* and *competition*. See @fig-mturkcor. In the exploratory GGM (based on the correlation matrix), as in the path model (@fig-mturksem), the effect of *total_gossip* on *give_benefit* was via *impression*. These variables were mostly independent of the competition variables *afraid*, *competition*, and *criticize*, although there was a small negative effect of *total_gossip* on *interference*. The association of the competition variables on *give_benefit* was mostly via their association with *get_your_job*. See @fig-mturkqgraph.
+
+In the PCA, the largest loadings on PC1 were *impression* and *give_benefit*, and *total_gossip* also loaded positively, as did *get_your_job* and *competition*. In contrast, three of the four threat/competition variables loaded strongly and positively on PC2 (*get_your_job* was the exception) and *total_gossip* loaded negatively. See @fig-mturkbiplot and @fig-mturkloadings. Taken together, these results indicate that positive gossip had little effect on perceived competition, and that, controlling for the other variables, the competition variables had little association with *give_benefit*.
+
+We also investigated possible effects of sex and age. We found no significant main effects of sex, or interactions with congruent or incongruent gossip (results not reported). However, there was a significant interaction of age with incongruent gossip such that increasing age was associated with a decreasing effect of *incongruent gossip* on *impression.* See @fig-mturkage, and @tbl-mturk, model 5.
+
+We then investigated if there were interactions between work and family gossip in their effect on impression, or between congruent and incongruent gossip. The interaction terms were small and not significant (results not reported). Finally, we fit a model of *impression* as a function of *congruent* and *incongruent* gossip, with interaction terms for nation (India and the US only). There was a main effect of nation, with the US participants reporting lower mean *impression*, but neither interaction term was significant. See @tbl-mturk, model 6.
+
+## Discussion
+
+This study provided strong evidence that differences in levels of positive gossip cause differences in rated willingness to *give benefits*, largely mediated by their effects on *impression*. Moreover, there was fairly consistent evidence that the impact of gossip is domain specific, with family gossip having a larger impact in family contexts than work contexts, and work gossip having a larger impact in work contexts than family contexts. More generally, congruent gossip had bigger impact on *impression* than incongruent gossip. These results align with those of @hess2021, who found that increasing competition for resources increased (mostly negative) gossip transmission by participants in a domain specific manner, i.e., they transmitted more gossip that was relevant to the domain of competition. Among US and Indian participants, these relationships were not significantly moderated by nationality.
+
+Overall, although these results are consistent with several theories of reputation and transfer of benefits, they arguably best support theories highlighting investment in individuals who provide valuable benefits to their families or to the broader community [@gurven2000; @sugiyama2000; @sugiyama2003; @sugiyama2004].
+
+# Study 2: Ngandu horticulturalist experiment
+
+The Ngandu in this study are slash and burn horticulturalists who live in a small village in the southwestern part of CAR, alongside a logging road. They subsist on manioc, corn, plantains, and other crops grown in extensive gardens surrounding the village. There is some market integration, with families selling surplus crops, for example, and producing coffee for sale on international exchanges. The Ngandu speak diNgandu, a Bantu language, along with Sango, the national language of CAR, and many men speak French. Social relations are hierarchically organized by age and sex, with a few formal status roles, such as the village mayor. Polygyny is common, and co-wives often compete for resources [@boyette2013].
+
+The Ngandu value a reputation for generosity, and resource transfers among paternal and maternal relatives is routine. Like similar ethnic groups around the world, witchcraft accusations play an important role in Ngandu life, generally revolve around jealousy over accumulations of material wealth, and are a constant source of gossip. In this regard, they might encourage generosity and serve as a leveling mechanism [@boyette2013]. The Ngandu regularly have Aka hunter-gatherers work in their gardens in exchange for food, money, and tobacco (see @sec-aka for more on the Aka).
+
+Shortly before this study was conducted, diamonds and gold were discovered nearby, and jobs at the mines dramatically increased cash flowing into the village. A few months after this study, CAR plunged into a civil war that, at the time of this writing, is ongoing.
+
+## Methods
+
+To replicate the MTurk Study with the Ngandu we worked with local informants to determine Ngandu cultural equivalents to the work and family vignettes and gossip statements. We then screened the positive and negative work and family gossip statments with `r length(unique(ngandu_ratings$id))` Ngandu raters to confirm that positive statements were viewed positively, and negative ones negatively (see @fig-nganduratings). For more details on this process, see @sec-ngandumethods in the SI. Statistical methods are the same as those described in @sec-mturkstats for the MTurk study.
+
+### Ngandu vignettes
+
+Participants were randomized into either the work or family condition, and then listened as that vignette was read to them in Sango by one of our research assistants.
+
+English translations of each vignette:
+
+> **Work**: Imagine that you have several Aka workers for your manioc plantation, and you have worked with these Aka women/men for a long time. But a new worker has arrived from the Congo because s/he married an Aka man/woman from [this village]. Manioc has become very expensive because the rainy season started too early. A big buyer comes from Bangui [the Capitol] and he wants to pay you 5000 francs. He has also brought many shirts as a gift because you give him a good price on manioc. You are deciding whether to share the shirts with one Aka worker, Male/Malassa [Male and Malassa are common Aka female and male names, respectively]. Listen to these things the people have been saying about Male/Malassa.
+
+> **Family**: Imagine you have five brothers/sisters, and you spent the last year working in Bangui [the Capital]. You have not seen your brothers/sisters for the last year, and your mother/father has just died. You are the Executor and your mother/father gave you two very expensive Italian suits[men]/dresses made in the Congo Kinshasa [women]. When your mother/father was alive s/he told you when s/he dies you keep one, and give the other one to Michael/Marie or one of your other brothers/sisters. Listen to these things about Michael/Marie that you have heard. [Michael and Marie are common Ngandu female and male names, respectively]
+
+After listening to one of the vignettes, participants listened to 7 work and 7 family gossip statements about the target. As in the MTurk study, each participant heard either a positive or negative version of each statement. The number of positive relative to negative statements was randomized between participants. The number of positive family statements is the *family gossip* score, and the number of positive work statements is the *work gossip* score.
+
+Example family gossip statements (positive and negative versions):
+
+- Male/Malassa is [good/bad] with children
+- Michael/Marie [has/does not have] a lot of debt
+
+Example work gossip statements (positive and negative versions):
+
+- Male/Malassa [does/does not] step on the plants when she/he works
+- Michael/Marie [does/does not] shout at her/his bosses
+
+Our outcome variable was how likely the participant was to allocate the valuable resource to a same-sex target in the vignette. We also asked several exploratory questions about perceived competition with the target. For the full survey, see @sec-ngandusurvey in the SI.
+
+We recruited `r nrow(ngandu2012)` adult Ngandu participants from the village. Participants came to our location individually (a few women brought their infants). After giving oral informed consent, our local research assistant translated and read our vignettes in the language the participant selected (mostly Sango, with a few selecting French or another language). After responding to our questions, Ngandu participants were thanked and paid. 
+
+## Results
+
+```{r}
+nsextbl <- table(ngandu2012$sex)
+```
+
+There were `r nsextbl['f']` women in the study, and `r nsextbl['m']` men. See @tbl-ngandusummary.
+
+```{r}
+#| warning: false
+
+vars <- c(
+  age = "Age (years)",
+  work_gossip = "Work gossip score",
+  family_gossip = "Family gossip score",
+  friendly = "Perceived friendliness",
+  afraid = "Perceived threat",
+  argue = "Target will argue",
+  criticize = "Criticize behind back",
+  impression = "Impression of target",
+  give_benefit = "Provide benefit to target",
+  believe_positive = "Believe positive gossip",
+  believe_negative = "Believe negative gossip"
+)
+
+knitr::kables(summaryTable(ngandu2012, vars, fac = 'condition', sigfigs = 3), caption = "Summary statistics for the Ngandu study, by family vs. work conditions; Cohen's 'd' is the standardized mean difference between conditions. {#tbl-ngandusummary}") %>% kable_classic()
+```
+
+Two path models were fit with the lavaan package, one for the work condition, and one for the family condition. In both, the randomized work and family gossip scores had a positive effect on *impression*, and *impression* was positively associated with *give benefit*. The direct effects of gossip scores on *give benefit* were smaller, and not significant for two of four effects. See @fig-mturksem.
+
+### Three tests of domain-specificity
+
+Although the linear regression model of *impression* as a function of work and family gossip (@eq-impression2) explained `r signif(100*glance(m_nganduRep)$adj.r.squared, 2)`% of the variance, the work vs. family condition did not significantly moderate the relationships between work and family gossip and *impression*, i.e., neither interaction term was statistically significant (unlike the MTurk study). See @fig-mturkreg and @tbl-ngandu, model 1.
+
+Like the MTurk study, on a regression model fit on data from the family condition only, the coefficient of the family gossip score was significantly larger than the coefficient of the work gossip score, $\beta_{family}=`r m_ngandu_family_z['b1']` > \beta_{work}=`r m_ngandu_family_z['b2']`$, $Z=`r m_ngandu_family_z['Z']`$, $p=`r m_ngandu_family_z['p']`$. In a regression model fit on data from the work condition only, on the other hand, the coefficient of the work gossip score was not significantly larger than the coefficient of the family gossip score, $\beta_{work}=`r m_ngandu_work_z['b1']` > \beta_{family}=`r m_ngandu_work_z['b2']`$, $Z=`r m_ngandu_work_z['Z']`$, $p=`r m_ngandu_work_z['p']`$.
+
+Like the MTurk study, in a linear regression of *impression* as a function of congruent and incongruent gossip scores, the coefficient of the *congruent gossip score* was significantly larger than the coefficient of the *incongruent gossip score*, $\beta_{congruent}=`r m_ngandu_congruent_z['b1']` > \beta_{incongruent}=`r m_ngandu_congruent_z['b2']`$, $Z=`r m_ngandu_congruent_z['Z']`$, $p=`r m_ngandu_congruent_z['p']`$.
+
+### Exploratory analyses
+
+We found no significant main effects of sex or age on *impression*, or their interactions with congruent or incongruent gossip. There was a modest significant positive interaction between *congruent* and *incongruent* gossip, however, such that positive or negative values on one increased or decreased the effect of the other on *impression*. See @tbl-ngandu, model 6.
+
+The threat variables -- *afraid*, *argue*, and *criticize* -- were moderately correlated with each other, all loading strongly on PC2 (and not on PC1), and not correlated with the *total_gossip*, *impression*, and *give_benefit* variables, which all loaded strongly on PC1 (and not PC2). See @fig-nganducor, @fig-ngandubiplot, and @fig-nganduloadings.
+
+A subset of Ngandu participants ($N=`r nobs(m_ngandu_belief)`$) were asked how much they believed the positive gossip and how much they believed the negative gossip. In a linear model of *impression* as a function of *work gossip*, *family gossip*, *believe positive gossip* and *believe negative gossip*, all coefficients were statistically significant, with *believe positive gossip* positively associated with *impression*, and *believe negative gossip* negatively associated with *impression*. See @tbl-ngandu, model 5.
+
+### Combined MTurk and Ngandu analysis
+
+We combined the MTurk and Ngandu data and fit several models investigating potential differences in parameters by population (i.e., including various population interaction terms), but did not find any evidence that the relationship between gossip and impression differed by population. @tbl-combo, model 1 shows that in a model of *impression* as a function of *congruent* and *incongruent* gossip, the population interaction terms were not significant (other models with insignificant population interaction terms not reported). It also shows that the coefficient of the *congruent gossip score* was significantly larger than the coefficient of the *incongruent gossip score*, $\beta_{congruent}=`r m_combo_z['b1']` > \beta_{incongruent}=`r m_combo_z['b2']`$, $Z=`r m_combo_z['Z']`$, $p=`r m_combo_z['p']`$.
+
+## Discussion
+
+The Ngandu results, like the MTurk results, showed that increasingly positive gossip caused an increase in reported likelihood of transferring resources to the target, an effect mediated by the effect of gossip on the *impression* of the target. The evidence for domain specificity was weaker, however, as there was no significant interaction between work and family condition of the effect of gossip on impression, perhaps because work and family domains are more intertwined in this population than in the MTurk sample. In support of domain specificity, however, the coefficient of congruent gossip was significantly larger than the coefficient of incongruent gossip, as also seen in the MTurk study.
+
+The GGM and PCA analyses showed even less connection between gossip, the competitive variables, and transferring resources in this study than in the MTurk study. Finally, and importantly, in the model of *impression* using the combined data, the population variable (MTurk vs. Ngandu) had no significant main effect nor significant interactions with congruent or incongruent gossip, thus not supporting any important population differences in the relationships between gossip, impression, and transferring resources. Like the MTurk study results, the Ngandu results therefore arguably best support theories highlighting investment in individuals who provide valuable benefits to their families or to the broader community.
+
+# Study 3: Aka forager exploratory observational study {#sec-aka}
+
+Genetic evidence indicates that Congo Basin foragers are one of three major lineages of modern humans, the other two being south African foragers (San) and everyone else (there is also evidence of a fourth ghost lineage); Congo Basin foragers, in turn, have Western and Eastern clades [@lipson2020; @lipson2022]. Aka (members of the Western clade) are highly mobile foragers who, like most other rain forest foragers, obtain many of their calories from starchy plant foods grown by neighboring farmers in exchange for labor, meat, honey, and other forest products [@takeuchi2014]. Aka live in small camps along trails that radiate from farming villages into the forest, where women and men both participate in collective net hunting of smaller forest animals, mainly duikers (forest antelopes). Both sexes also gather plant foods, but only men collect honey [@hewlett1996]. The Aka, like many foraging populations, tend to be more egalitarian than non-foraging populations, lack gender and intergenerational inequality, and maintain this ethic through prestige avoidance, demand sharing (demanding that someone share food, tobacco, or other valuable resources), and rough joking [@hewlett1991]. For a comprehensive introduction to Congo Basin foragers, see @hewlett2014.
+
+The Aka in this study live in camps on two adjacent trails that terminate in the Ngandu village described above. Aka speak a Bantu language, which, though different from that of Ngandu or other neighboring Bantu farmers, nevertheless indicates a long association with farming groups. Similar to many forager and farmer groups throughout the Congo Basin, relations between Aka and Ngandu are a complex mix of cooperation and conflict, disdain and awe. Ngandu regard Aka as a species intermediate between humans and wild animals, and Aka regard Ngandu as lazy and wild subhumans. At the same time, both groups believe that the other possesses great supernatural powers [@takeuchi2014].
+
+This study aimed to investigate the relationship between individuals' peer-rated contributions to their group, costs imposed on the group, and reputations and receipt of benefits from the group. Contributions to the group were assessed by peer-ratings of working hard, sharing, and parenting/alloparenting. A previous study in this population found that peer-rated anger was associated with hitting and was viewed negatively [@hess2010]. We therefore assessed peer-rated anger as a measure of costs imposed on the group. Because inclusive fitness is an important possible explanation for resource transfers, we measured average relatedness to the group. Finally, we investigated whether there were sex or age differences in reputation or receiving benefits.
+
+## Methods
+
+All `r nrow(aka_ratings)` adult Aka residents of two adjacent trails agreed to participate in the study and were photographed. Ages were estimated by Ngandu research assistants with whom Aka participants had lifelong relationships. Each individual was then interviewed separately with an Ngandu translator who also spoke French or English. Each Aka participant viewed the photos, one by one in random order, and was asked to rate, on a five-point scale, each pictured individual on traits relevant to reputation and receipt of benefits: -2 (much less than other Aka), -1 (a little less than other Aka), 0 (the same as other Aka), 1 (a little more than other Aka), 2 (a lot more than other Aka). To reduce the burden on participants, and to minimize spurious correlation among traits due ratings by the same raters, each rater rated all their peers on only a random subset of these traits, with 7-9 peer-raters for each trait. We did not anticipate high interrater reliability for these traits because individual relationships would undoubtedly strongly influence ratings, but we did expect that mean ratings would nevertheless be informative. In all, 29 Aka rated `r nrow(aka_ratings)` Aka on 6 traits: 11 raters rated only 1 trait, 16 raters rated 2 traits, and 2 raters rated 3 traits. The 6 reputation-relevant traits were:
+
+* *Works hard*: Does this person work more or less than other Aka?
+* *Share*: Does this person share more or less than other Aka?
+* *Parenting/alloparenting*: Is this person a better or worse parent than other Aka? (For individuals without children, this question was modified to ask about care of children)
+* *Angry*: Is this person more or less angry than other Aka?
+* *Reputation*: When people talk about this person, do they say more good things or more bad things?
+* *Receive benefits*: Do other Aka share more or less with this person?
+
+To estimate genetic relatedness, each participant provided the names of their two parents and their four grandparents. Parent and grandparent names were double-checked with a senior kombeti (camp leader).
+
+## Statistical analyses
+
+The Aka study differed substantially from the MTurk and Ngandu studies. The latter studies involved individuals responding to experimentally manipulated gossip about a fictional character, whereas the Aka study was an observational study of adults, many of whom were biological relatives and all of whom had extensive real-life relationships, rating each other on multiple traits. Hence, there were likely to be complex relationships among all the variables. We therefore took an exploratory (i.e., data driven) approach, performing a PCA on all study variables, and fitting a GGM.
+
+## Results
+
+```{r}
+akasextbl <- table(aka_ratings2$sex)
+```
+
+Our sample of Aka had `r akasextbl['f']` women and `r akasextbl['m']` men, each of whom resided with an average of `r mean(total_kin)` biological kin in the sample. The average relatedness to one's biological kin in the sample was `r signif(mean(kin_r, na.rm=T), 2)`, whereas the average relatedness to the sample as whole was `r signif(mean(aka_ratings2$avg_relatedness), 2)` (`r sum(total_kin==0)` participants had no biological kin in the sample). See @tbl-akasummary.
+
+```{r}
+vars <- c(
+  age = "Age (years)",
+  workhard = "Works hard",
+  give = "Shares with others",
+  angry = "Gets angry",
+  reputation = "Reputation",
+  receive = "Others share with",
+  avg_relatedness = "Average relatedness"
+)
+summaryTable(aka_ratings2, vars, sigfigs = 3, caption = "Summary statistics of the Aka sample {#tbl-akasummary}") %>% kable_classic()
+```
+
+The PCA provided important insights. An initial PCA revealed that the kombeti (camp leader) was an extreme outlier. We therefore performed PCA with this individual removed, and then plotted all individuals, including the kombeti, using the resulting PC1 x PC2 coordinates (see @fig-akabiplot, A,B). The first 3 PCs accounted for `r 100*signif(summary(aka_pca)$importance[3,3], 2)`% of the variance, with PC1 and PC2 accounting for approximately equal percentages. PC2 was readily interpretable as the predicted association between *reputation* and *receiving benefits*, with *parenting* loading positively on this component, and *angry* loading negatively. PC1, with positive loadings from *work hard*, *age*, and *avg_relatedness*, could be interpreted as investing in kin, as could PC3, with positive loadings from *share* and *avg_relatedness*. 
+
+Remarkably, almost all women had positive values on PC2 whereas almost all men had negative values. We interpret this as a sexual division of labor, with women investing more in parenting than men, and receiving more benefits (presumably from male surplus production). The GGM (which we also fit with the kombeti removed) provided additional insights. *Reputation* was associated with *receive benefits*. as was female sex (but sex was *not* associated with *reputation*). Interestingly, although *sharing*, a core Aka value, and *avg_relatedness* were positively associated with each other, neither was directly linked to *reputation* or *receiving benefits*. *Work hard* also had an enigmatic positive association with *angry*. It should be noted that fitting a GGM involves setting some hyperparameters, and adjusting these gave somewhat different results. Thus, the GGM reported here is clearly exploratory.
+
+```{r}
+#| label: fig-akabiplot
+#| message: false
+#| fig-cap: "PCA and GGM of Aka study variables. **A:** PCA variable loadings. **B:** PCA biplot. **C:** Gaussian Graphical Model (GGM). Edge weights are partial correlation coefficients. Females were code as 0 and males as 1, so negative coefficients for sex indicate a female bias, and positive coefficents a male bias."
+#| fig-width: 11
+knitr::include_graphics("Figures/aka_biplot_loadings_ggm.png")
+```
+
+## Discussion
+
+There was a dramatic sex difference in the clustering of participants in the PCA, with almost all women having positive values on PC2, interpretable as the relationship between parenting, reputation, and receiving benefits, and all men (except the kombeti) having low or negative values. Specifically, the PCA and GGM (which investigated pairwise partial correlations, conditional on all other variables) supported 4 of the 6 predictions in the Study Aims, albeit with relatively weak associations: *parenting* and *work hard* were positively associated with *reputation*, and *angry* was negatively associated, and *reputation* was positively associated with *receiving benefits*. Somewhat surprisingly, however, two predictions were not supported: *share*, a core Aka value, was not associated with *reputation* or *receive benefits* in the GGM (i.e., coefficients were shrunk to 0). *Avg relatedness* was also not associated with *receive benefits*, probably because juveniles were not included in the study. *Avg relatedness* was positively associated with *share*, however, and both loaded on PC3. *Work hard* might be associated with *angry* because hard workers were physically stronger, and thus more likely to use anger [@hess2010] and/or that hard workers were angry at those who worked less hard.
+
+Taken together, these results support the prediction that good reputations are associated with the receipt of benefits, and that reputations are positively influenced by contributions to the family (parenting) and by contributions to kin and/or the community (work hard), although the associations were relatively weak. The results also support the inclusive fitness prediction that genetic relatedness helps explain the transfer of resources to others (sharing). Finally, they show clear evidence for a sex difference, perhaps due to a sexual division of labor, with women rated as better parents than men, and also as receiving more benefits.
+
+# Limitations
+
+The MTurk and Ngandu studies traded the ecological validity of real-world observations of individuals gossiping with their social partners for the experimental control afforded by the vignette design. The Aka study, on the other hand, although having high ecological validity, was observational, preventing robust causal interpretations, and was also limited by its small sample size, which increased the risk of overfitting the data. It was also impossible to determine the role of the immediate social context in the results of the Aka study, which was conducted after the camp members had just returned from an extended stay in the forest collecting caterpillars, but also at a time when wage labor opportunities from mining jobs were increasing.
+
+# General discussion
+
+The experimental MTurk and Ngandu vignette studies found strong, consistent evidence that negative and positive gossip caused lower and higher likelihood of transferring benefits to a fictional target of the gossip, respectively, an effect that was largely mediated by the effect of gossip on impressions of the target. The effect of gossip was also domain specific, with gossip that was congruent with the context (e.g., family-related gossip in a situation involving intergenerational transfer of resources) having a greater impact on impressions than incongruent gossip. This pattern did not differ among the two major subpopulations of MTurk participants (US and India), nor, in the combined analysis, among MTurk and Ngandu participants. 
+
+These results provide strong support for reputation-based theories of resource transfers in both small- and large-scale societies, which include indirect reciprocity [@alexander1986; @nowak2005; @leimar2001; @balliet2020], costly signaling [@gintis2001; @hawkes2002; @bliegebird2005; @stibbardhawkes2019], and investing in those who provide valuable benefits to the family or community [@gurven2000; @sugiyama2000; @sugiyama2003; @sugiyama2004]. While our results do not rule out any of these, our gossip stimuli did not emphasize sharing with others, the basis of indirect reciprocity (although they did include gossip about behaviors that are beneficial to others). They also did not emphasize risky behaviors, the basis of costly signaling, and the few such behaviors that were included, such as gambling and drinking, were viewed negatively. Our gossip stimuli instead emphasized providing benefits to one's family, such as loving one's siblings or being good with children, or benefits to work, such as working well under pressure and working late, and avoiding imposing costs, such incurring debt or stealing corn. 
+
+The Aka results similarly showed that contributions to family and community were associated with a good reputation, which in turn was associated with receiving benefits (though the associations were small). The strong female bias in parenting and receipt of benefits is consistent with a sexual division of labor in which men's surplus production is transferred to women, who invest it in offspring, a pattern seen in other small-scale societies [e.g., @hooper2015]. Thus, our results align most closely with theories that propose that resources are transferred to those who benefit their families or communities, and avoid imposing costs on them.
+
+Our results also provide an empirical foundation for competitive gossiping. Although congruent and incongruent gossip both strongly influenced the transfer of benefits, mediated by their effects on impression, congruent gossip had a greater effect. This helps explain why, in a competitive context, individuals relay more congruent gossip, i.e., gossip that is relevant to the competitive context, than incongruent gossip: competitors and allies are targeting the rationales for resource transfers, and resource holders are paying close attention [@hess2021].
+
+# Supplementary information
+
+## MTurk
+
+### MTurk survey instrument {#sec-mturksurvey}
+
+#### Consent form
+
+This HIT is part of a research project on resource allocation. It involves reading a description of a fictional person that includes statements like "Mary is an excellent dancer" and "Mary is a bad cook." You will then decide how likely you would be to give Mary a reward. You will also be asked to provide your age, gender, occupation, and nationality, but no other personal information. Your individual responses to the survey questions will not be made public. This HIT takes about 5 minutes to complete. You can refuse to answer any question, and you are under no obligation to finish the survey. Just close the window to withdraw from participation. You will receive one dollar for your participation. To receive payment, however, you must answer **all** questions. You must be 18 years or older to participate in this HIT.
+
+The purpose of this research is to collect data that may be written up for a report to be submitted for publication in an academic journal. In addition, the data may be helpful in designing future research projects and applying for grants to help fund those projects.
+
+The only person who will be able to link your workerID (but not your name) to your responses to the questions is Nicole Hess, a professor at Washington State University. Amazon Mechanical Turk will know that you participated in this study, but will NOT have access to your responses to the questions.
+
+If you have questions about the study please contact the researcher, Nicole Hess, at nicolehess\@wsu.edu. If you have questions about your rights as a participant please contact the WSU IRB at 509-335-3668 or irb\@wsu.edu.
+
+If you would like to print this consent form, please select Print from the file menu of your browser.
+
+If you would like to take part in this HIT, please click the "Yes" button below, and then click the "Submit" button."
+
+-   I consent to participate in this study
+
+#### Initial demographic questions
+
+Please enter the following basic information about yourself (do NOT enter your name or any other identifying information):
+
+-   Your age in years.
+-   Your sex.
+-   What country do you consider to be your "home" country?
+-   In what country are you living now?
+-   What is your occupation?
+-   Have you ever worked in an office?
+
+#### Work vignette
+
+Imagine you work in an office where you supervise 10 employees, half men and half women. Your office is one division of a company that has done well in the last year, and the company gave you a 20% raise. The company has also authorized you to give a 20% raise to one of the employees you supervise.
+
+Dave/Elizabeth is one of the employees that you supervise. Here are some of the things that you know about Dave/Elizabeth:
+
+#### Family vignette
+
+Imagine you have 10 cousins, half men and half women. Your wealthy grandmother has just died and you are the executor of her will. Your grandmother owned two valuable paintings that she wanted to remain in the family, and she left you one of them. Her will instructs you to give the other painting to one of your 10 cousins.
+
+Dave/Elizabeth is one of your cousins. Here are some of the things you know about Dave/Elizabeth:
+
+#### Gossip statements (positive and negative versions)
+
+**Family-related gossip**
+
+-   Dave/Elizabeth \[loves/hates\] his/her siblings.
+-   Dave/Elizabeth is \[not\] good with children.
+-   Dave/Elizabeth \[always/never\] invites his/her parents to visit him.
+-   Dave/Elizabeth is a \[safe/unsafe\] driver.
+-   Dave/Elizabeth \[never/frequently\] gambles.
+-   Dave/Elizabeth \[has/does not have\] the same political views as most of his/her family members.
+-   Dave/Elizabeth has \[no/high\] credit card debt.
+
+**Work-related gossip**
+
+-   Dave/Elizabeth \[works/does not work\] well under pressure.
+-   Dave/Elizabeth is \[willing/unwilling\] to work late to finish a project on time.
+-   Dave/Elizabeth is \[not\] enthusiastic with customers at work.
+-   Dave/Elizabeth \[never/often\] uses the phone at work for personal calls.
+-   Dave/Elizabeth takes \[short/long\] lunch breaks.
+-   Dave/Elizabeth \[never/regularly\] misplaces important documents.
+-   Dave/Elizabeth \[always/never\] contributes to gifts for colleagues at work.
+-   Dave/Elizabeth \[has/does not have\] a good understanding of the computer system at work.
+-   Dave/Elizabeth \[never/frequently\] takes home office supplies from work.
+
+#### Post-gossip questions
+
+-   What is your impression of Dave/Elizabeth?
+-   How competitive do you feel with Dave/Elizabeth?
+-   How likely would you be to give the \[raise/painting\] to Dave/Elizabeth?
+-   How friendly is Dave/Elizabeth?
+-   In your experience, how much do personal affairs influence work performance?
+-   How likely is Dave/Elizabeth to criticize you behind your back?
+-   How physically threatening is Dave/Elizabeth?
+-   If Dave/Elizabeth wanted your job as \[supervisor in this office/Executor\], how likely do you think s/he would be to get it?"
+-   If Dave/Elizabeth got into a dispute with a \[man/woman at work/cousin\], how much should the man worry that Dave/Elizabeth would try to interfere with his/her \[opportunities at work/relationships with other family members\]?"
+-   In your experience, how much does work performance influence personal affairs?
+-   In your experience, how much do personal affairs influence work performance?
+
+### Comparing US vs Indian participants
+
+```{r}
+#| message: false
+d <- mturk2011 %>% dplyr::filter(nation_home == 'India' | nation_home == 'United States')
+knitr::kables(summaryTable(d, fac='nation_home'), caption = "Comparison of US vs. Indian participants only. {#tbl-IndiaUS}") %>% kableExtra::kable_classic()
+```
+
+### MTurk path model parameters
+
+```{r}
+knitr::kable(tidy(mturkSEM), digits = 2, caption="MTurk path model parameters. {#tbl-mturksem}") %>% kableExtra::kable_classic()
+```
+
+
+### MTurk correlation matrix plot of study variables
+
+```{r}
+#| label: fig-mturkcor
+#| fig-width: 8
+#| fig-height: 8
+#| fig-cap: "Correlation matrix of all MTurk study variables."
+plot_cor_mturk
+```
+
+### MTurk exploratory Gaussian graphical model
+
+```{r}
+mturk_edge_min <- signif(min(mturk_qgraph), 2)
+mturk_edge_min_nms <- 
+  paste(
+    rownames(which(mturk_qgraph == min(mturk_qgraph), arr.ind = T)), 
+    collapse = " ~ "
+  )
+
+mturk_edge_max <- signif(max(mturk_qgraph), 2)
+mturk_edge_max_nms <- 
+  paste(
+    rownames(which(mturk_qgraph == max(mturk_qgraph), arr.ind = T)), 
+    collapse = " ~ "
+  )
+```
+
+Edge weights range from `r mturk_edge_min` (`r mturk_edge_min_nms`) to `r mturk_edge_max` (`r mturk_edge_max_nms`).
+
+```{r}
+#| label: fig-mturkqgraph
+#| warning: false
+#| fig-cap: "MTurk Gaussian graphical model. See text for details."
+
+qgraph(mturk_qgraph, labels = mturk_vars, edge.labels=T, edge.label.color='black', edge.label.bg=F, label.scale = F, layout = "circle")
+```
+
+### MTurk PCA
+
+```{r}
+#| label: fig-mturkbiplot
+#| fig-cap: "MTurk PCA biplot."
+pca_biplot(mturk_pca, components = 1:2, reverse=1:2)
+```
+
+```{r}
+#| label: fig-mturkloadings
+#| message: false
+#| fig-cap: "MTurk PCA loadings plot"
+pca_loadings_plot(mturk_pca, components = 1:2, reverse=1:2)
+```
+
+
+### MTurk regression tables
+
+```{r}
+
+models <- list(
+  "MTurk model 1" = m_mturkdomain,
+  "MTurk model 2 (work condition only)" = m_mturk_work,
+  "MTurk model 3 (family condition only)" = m_mturk_family,
+  "MTurk model 4: Congruent and Incongruent" = m_mturk_congruent,
+  "MTurk model 5: Age interaction" = m_mturk_age,
+  "MTurk model 6: Nation interaction" = m_mturk_india_us
+)
+
+regressiontable(models, caption = "Linear regression models of Impression in MTurk sample. {#tbl-mturk}", sigfig=2)
+```
+
+### MTurk age interaction
+
+```{r}
+#| label: fig-mturkage
+#| fig-cap: "Effects plot of a linear regression model of impression as a function of congruent gossip, incongruent gossip, and their interaction with participant age (only the significant interaction of age with incongruent gossip is depicted here). For model coefficients and other statistics, see @tbl-mturk, model 5."
+visreg(m_mturk_age, xvar='incongruent', by = 'age', gg=T) + theme_bw()
+```
+
+## Ngandu {#sec-ngandumethods}
+
+### Ngandu survey creation details
+
+We had to create stimuli that were culturally-relevant to Ngandu participants. First, to generate our positive and negative gossip statements, we brainstormed with our informants about what kinds of traits and behaviors would reflect negatively or positively on a target relative in a family context, and positively and negatively on a target worker in a work context.
+
+Behaviors and traits that emerged as important included: having debts, relationship quality with one’s parents and siblings and willingness to help them, the treatment of children, singing and dancing, drinking alcohol and taking drugs, temperament (especially with regard to being happy, kind, selfish, obnoxious, and angry), fighting and becoming incarcerated (which requires the family to pay for their release), respect toward one’s neighbors, wearing dirty or ugly clothing and keeping a dirty house (which is “embarrassing”), stealing, being generous with one’s in-laws, having only one mate (vs. many mates, which creates conflicts), and going to church regularly (many Ngandu practice Christianity brought by Catholic and protestant missionaries). 
+
+Several traits and behaviors were more good or bad depending on whether the target was male or female. For example, dressing overly sexily, cheating on one’s spouse, refusing to cook, and being old without having a spouse and children were bad for women, but not men. Showing off one’s wealth, stealing money from one’s family to give to one’s girlfriends, gambling (playing “the card”), and getting in fights at bars were bad for men, but were not bad for, or were irrelevant to, women. We tried to select traits and behaviors that would be good or bad regardless of sex.
+
+The benefit had to be valuable to members of either sex; ideally, the benefit would be indivisible, such that it could not go to both the target and other individuals (this ruled out, e.g., land, fabric, houses, and cash); it had to be valuable enough to be something a recipient would want (ruling out, e.g., cookware and eating ware), but not so valuable that it would cause conflict, potentially making the participant less likely to give it to the target (this ruled out, e.g., motorcycles, bicycles, generators, and guns); the benefit had to be realistic (ruling out cars and valuable jewelry), and it had to be something that was nonperishable (impacting how quickly it would have to be allocated, and ruling out, e.g., most foods and medicines). We decided on a piece of valuable clothing: for men, a fine Italian suit with an estimated value of 60,000 CFA (Central African Francs), and for women a fine dress made in Congo with an estimated value of 30,000 CFA. To diminish competition between the participant and the target, we included two pieces of clothing in the vignette, where one was to go to the participant, and one was to go to the target. We asked what events might lead to having valuable clothing to give away, and our informants said that valuable clothing was inherited when a parent died, the first born child of the same sex (the “*heritiere*”) had the right to allocate the belongings of the deceased. Thus, our vignette asked the participant to imagine themselves at the *heritiere* of their parent’s belongings. The parent told the participant before he or she died that the participant was to keep one of their two valuable dresses or suits for themselves, and give to other to one of their same-sexed siblings. The learn about the recent state and behaviors of one particular sibling (the positive and negative work and family gossip statements), and then decide how likely they are to give the extra dress or suits to that sibling.
+
+Similar methods and rationales were used to construct the Ngandu work vignette.
+
+### Ngandu survey instrument {#sec-ngandusurvey}
+
+#### Vignettes
+
+> **Work scenario**: Imagine that you have several Aka workers for your manioc plantation, and you have worked with these Aka women/men for a long time. But a new worker has arrived from the Congo because s/he married an Aka man/woman from [this village]. Manioc has become very expensive because the rainy season started too early. A big buyer comes from Bangui [the Capitol] and he wants to pay you 5000 francs. He has also brought many shirts as a gift because you give him a good price on manioc. You are deciding whether to share the shirts with one Aka worker, Male/Malassa [Male is a female name, Malassa a male name]. Listen to these things the people have been saying about Male/Malassa.
+
+> **Family scenario**: Imagine you have five brothers/sisters, and you spent the last year working in Bangui [the Capital]. You have not seen your brothers/sisters for the last year, and your mother/father has just died. You are the Executor and your mother/father gave you two very expensive Italian suits [men]/dresses made in the Congo Kinshasa [women]. When your mother/father was alive s/he told you when s/he dies you keep one, and give the other one to Michael/Marie or one of your other brothers/sisters. Listen to these things about Michael/Marie that you have heard.
+
+#### Gossip statements
+
+1-8: family positive
+9-16: family negative
+17-24: work positive
+25-32: work negative
+
+#### Family (matching positive and negative versions)
+
+* [The gossip target] is [good/bad] with children
+* [The gossip target] [has/does not have] a lot of debt
+* [The gossip target] [does/does not] gamble a lot
+* [The gossip target] [loves/does not love] his/her brothers and sisters
+* [The gossip target] [never] visits his/her parents
+* [The gossip target] [does not] give(s) money to his/her family
+* [The gossip target] says [good/bad] things about his/her family
+
+#### Work (matching positive and negative versions)
+
+* [The gossip target] [always/never] finishes his/her work
+* [The gossip target] [comes/does not come] to work drunk
+* [The gossip target] [does/does not] shout at her bosses
+* [The gossip target] [does/does not] steal corn from her bosses
+* [The gossip target] [does/does not] step on the plants when she is working
+* [The gossip target] [never} arrives late to work
+* [The gossip target] [does/does not] talk too much when she works
+
+#### Post-gossip questions
+
+* How likely are you to give the clothing [to the gossip target]? (unlikely=1, likely=5)
+* What is your opinion of [the gossip target]? (very bad=1, very good=5)
+* How friendly is [the gossip target]? (very unfriendly=1, very friendly=5)
+* How afraid are you of [the gossip target] (very unafraid=1, very afraid=5)
+* If you do not give the clothes, how likely would [the gossip target] argue with you? (unlikely=1, likely=5)
+* If you do not give the clothing, will [the gossip target] say bad things about you? (unlikely=1, likely=5)
+* How much do you believe the positive gossip? (don't believe=1, believe=5)
+* How much do you believe the negative gossip? (don't believe=1, believe=5)
+
+### Ngandu gossip statement ratings
+
+```{r}
+#| label: fig-nganduratings
+#| fig-width: 10
+#| fig-cap: "Mean ratings of Ngandu gossip statements confirm that postive statements were viewed as positive, and negative statements as negative. Gossip type: family or work. Gossip valence: intended valence (positive or negative)."
+plot_ngandu_ratings
+```
+
+### Ngandu path model parameters
+
+```{r}
+knitr::kable(tidy(nganduSEM), digits = 2, caption="Ngandu path model parameters. {#tbl-ngandusem}") %>% kableExtra::kable_classic()
+```
+
+
+### Ngandu correlation matrix plot of study variables
+
+```{r}
+#| label: fig-nganducor
+#| fig-width: 8
+#| fig-height: 8
+#| fig-cap: "Correlation matrix of all Ngandu study variables."
+plot_cor_ngandu
+```
+
+### Ngandu exploratory Gaussian graphical model
+
+```{r}
+ngandu_edge_min <- signif(min(ngandu_qgraph), 2)
+# ngandu_edge_min_nms <- 
+#   paste(
+#     rownames(which(ngandu_qgraph == min(ngandu_qgraph), arr.ind = T)), 
+#     collapse = " ~ "
+#   )
+
+ngandu_edge_max <- signif(max(ngandu_qgraph), 2)
+ngandu_edge_max_nms <- 
+  paste(
+    rownames(which(ngandu_qgraph == max(ngandu_qgraph), arr.ind = T)), 
+    collapse = " ~ "
+  )
+```
+
+Edge weights range from `r ngandu_edge_min` (no edge) to `r ngandu_edge_max` (`r ngandu_edge_max_nms`).
+
+```{r}
+#| label: fig-nganduqgraph
+#| warning: false
+#| fig-cap: "Ngandu network model. See text for details."
+
+qgraph(ngandu_qgraph, labels = ngandu_vars, edge.labels=T, edge.label.color='black', edge.label.bg=F, label.scale = F, layout = "circle")
+```
+
+
+### Ngandu PCA
+
+```{r}
+#| label: fig-ngandubiplot
+#| fig-cap: "Ngandu PCA biplot."
+pca_biplot(ngandu_pca, reverse=2)
+```
+
+```{r}
+#| label: fig-nganduloadings
+#| fig-cap: "Ngandu PCA loadings plot."
+pca_loadings_plot(ngandu_pca, components = 1:2, reverse=2)
+```
+
+### Ngandu regression tables
+
+```{r}
+
+models <- list(
+  "Ngandu model 1" = m_nganduRep,
+  "Ngandu model 2 (work condition only)" = m_ngandu_work,
+  "Ngandu model 3 (family condition only)" = m_ngandu_family,
+  "Ngandu model 4: Congruent and Incongruent" = m_ngandu_congruent,
+  "Ngandu model 5: Belief in positive and negative gossip" = m_ngandu_belief,
+  "Ngandu model 6: Interaction between congruent and incongruent" = m_ngandu_ci_interact
+)
+
+regressiontable(models, caption = "Linear regression models of Impression in Ngandu sample. {#tbl-ngandu}", sigfig=2)
+```
+
+## Combined MTurk and Ngandu data regression table
+
+```{r}
+
+models <- list(
+  "Combo model 1: Combined congruent" = m_combo_congruent
+)
+
+regressiontable(models, caption = "Linear regression model of *impression* in combined MTurk and Ngandu sample. {#tbl-combo}", sigfig=2)
+```
+
+## Aka
+
+### Aka survey instrument
+
+* When people talk about this person, do they say more good things or more bad things? [-2=say very bad things; 2=say very good things]
+* Does this person share more or less than other Aka? [-2=much less than other Aka; 2=much more than other Aka]
+* Do other Aka share more or less with this person? [-2=much less than other Aka; 2=much more than other Aka]
+* Does this person work more or less than other Aka? [-2=much less than other Aka; 2=much more than other Aka]
+* Is this person a better or worse parent than other Aka? [-2=much worse than other Aka; 2=much better than other Aka]
+* Is this person more or less angry than other Aka? [-2=much less angry than other Aka; 2=much more angry than other Aka]
+
+### Aka correlation matrix
+
+```{r}
+#| label: fig-akacor
+#| fig-width: 8
+#| fig-height: 8
+#| fig-cap: "Correlation matrix of Aka study variables."
+plot_cor_aka
+```
+
+## Session info
+
+```{r}
+sessionInfo()
+```
+
+
+# References
