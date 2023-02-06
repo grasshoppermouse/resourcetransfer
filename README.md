@@ -1,5 +1,7 @@
 # resourcetransfer
 
+[![DOI](https://zenodo.org/badge/536831583.svg)](https://zenodo.org/badge/latestdoi/536831583)
+
 This repository contains all code necessary to reproduce:
 
 [*Gossip, reputation, domain-specificity, and resource transfers among Aka hunter-gatherers, Ngandu horticulturalists, and MTurkers*](https://grasshoppermouse.github.io/resourcetransfer/). Nicole H. Hess and Edward H. Hagen
